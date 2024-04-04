@@ -1,0 +1,16 @@
+version: '3.4'
+
+networks:
+  test:
+
+services:
+  demo:
+    image: ${DOCKER_REGISTRY-}demo
+    build:
+      context: .
+      dockerfile: Demo/Dockerfile
+    container_name: demo-container
+    ports:
+     - 8001:80
+    networks:
+    - test
